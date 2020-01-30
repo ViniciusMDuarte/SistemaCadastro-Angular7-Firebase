@@ -21,4 +21,9 @@ export class ClienteService {
   salvarClientes(cliente : Cliente): Promise<DocumentReference>{
     return this.db.collection(this.clienteColection).add(cliente)
   }
+
+  editarClientes(cliente : Cliente): Promise<DocumentReference>{
+    return this.db.collection(this.clienteColection).
+  }
+
 }
