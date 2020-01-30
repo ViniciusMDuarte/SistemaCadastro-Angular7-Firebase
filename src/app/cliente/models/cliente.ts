@@ -4,4 +4,5 @@ export interface Cliente {
     casado: boolean;
     dataCad: Date;
     dataMod: Date;
+
 }
