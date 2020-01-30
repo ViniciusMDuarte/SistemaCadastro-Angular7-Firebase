@@ -1,0 +1,34 @@
+INSTALAR BOOTSTRAP, FIREBASE E FONT ICONS
+
+npm install firebase @angular/fire font-awesome bootstrap @ng-bootstrap/ng-bootstrap --save
+
+
+IMPORTS PARA O APP MODULE
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+DEPENDENCIAS DO IMPORT DO APP MODULE
+
+AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    NgbModule,
+    ReactiveFormsModule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
