@@ -1,4 +1,4 @@
-export interface ClientViewModel {
+export interface ClienteViewModel {
     id: string;
     nome: string,
     endereco: string;

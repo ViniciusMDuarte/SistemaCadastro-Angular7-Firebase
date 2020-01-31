@@ -1,5 +1,23 @@
-<p>Tela Cliente</p>
-
-<br>
-
+<h1>Tela de Clientes</h1>
 <button class="btn btn-primary" (click)="addCliente()">Adicionar Cliente</button>
+
+<table class="table table-striped" *ngIf="clientes && clientes.length > 0">
+    <thead>
+        <tr>
+            <th>Casado</th>
+            <th>Nome</th>
+            <th>Data de Cadastro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes, let index = index">
+            <td><input type="checkbox" [checked]="cliente.Casado" (change)="checkedCasado(index)" /></td>
+            <td [ngClass]="{'casado': cliente.casado, 'nao-casado': !cliente.casado}">{{cliente.nome}}</td>
+            <td>{{cliente.dataMod | date}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="EditarClick(cliente)">Editar</button>
+                <button class="btn btn-danger" (click)="DeletarClick(cliente.id, index)">Deletar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
