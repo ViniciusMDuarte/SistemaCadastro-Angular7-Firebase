@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteFormComponent } from '../cliente-form/cliente-form.component';
 import { ClienteService } from 'src/app/cliente/services/cliente.service';
-import { ClienteViewModel} from 'src/app/cliente/models/cliente-view-model';
+import { ClienteViewModel } from "src/app/cliente/models/cliente-view-model";
 
 @Component({
   selector: 'app-cliente',
@@ -16,6 +16,8 @@ export class ClienteComponent implements OnInit {
     private clienteService: ClienteService
     )  { }
 
+    clientes: ClienteViewModel[] = [];
+
   ngOnInit() {
     this.mostrarClientes();
   }
@@ -28,8 +30,16 @@ export class ClienteComponent implements OnInit {
       )
   }
 
-  clientes: ClienteViewModel[] = [];
-  
+  EditarClick(cliente: ClienteViewModel){
+    const modal = this.modalService.open(ClienteFormComponent);  
+    modal.result.then( 
+      this.handleModalClientForm.bind(this),
+      this.handleModalClientForm.bind(this)
+  )
+  modal.componentInstance.modoInsercao = false;
+  modal.componentInstance.cliente = cliente;
+  }
+
   mostrarClientes() {
     this.clienteService.getClientes().subscribe(response => {
       this.clientes = [];

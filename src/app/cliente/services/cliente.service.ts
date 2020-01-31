@@ -4,7 +4,7 @@ import { AngularFireModule } from '@angular/fire';
 import { Observable } from 'rxjs';
 import { Cliente } from '../models/cliente';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
-import { ClienteViewModel } from '../models/cliente-view-model';
+import { ClienteViewModel } from "../models/cliente-view-model";
 
 @Injectable({
   providedIn: 'root'
